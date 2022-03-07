@@ -8,9 +8,6 @@
     "eject": "expo eject",
     "test": "jest"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
   "dependencies": {
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
