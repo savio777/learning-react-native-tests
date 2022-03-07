@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
 const styles = StyleSheet.create({
@@ -9,20 +10,40 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function App() {
+const App: React.FC = () => {
+  const [name, setName] = useState("João");
+  const [lastName, setLastName] = useState("Silva");
+
+  useEffect(() => {
+    /*setTimeout(() => {
+      setName("João");
+      setLastName("Silva");
+    }, 3000);*/
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text>Aprendendo a realizar testes unitários no react-native</Text>
-
-      <TextInput placeholder="Nome" autoCorrect={false} testID="name" />
+      <Text testID="title-screen">
+        Aprendendo a realizar testes unitários no react-native
+      </Text>
 
       <TextInput
-        placeholder="Sobrenome"
+        testID="name"
+        placeholder="Nome"
         autoCorrect={false}
-        testID="lastName"
+        value={name}
       />
 
-      <Button title="Salvar" onPress={() => {}} />
+      <TextInput
+        testID="last-name"
+        placeholder="Sobrenome"
+        autoCorrect={false}
+        value={lastName}
+      />
+
+      <Button testID="button-save" title="Salvar" onPress={() => {}} />
     </View>
   );
-}
+};
+
+export default App;
