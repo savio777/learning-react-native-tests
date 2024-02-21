@@ -5,9 +5,17 @@ import Profile from "./components/Profile";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#cfcfcf",
     alignItems: "center",
-    justifyContent: "space-evenly",
+    paddingTop: 80,
+    padding: 12,
+    gap: 8,
+  },
+  input: {
+    height: 50,
+    width: "100%",
+    borderBottomWidth: 1,
+    borderBottomColor: "gray",
   },
 });
 
@@ -19,7 +27,7 @@ const App: React.FC = () => {
   const handleSubmit = () => {
     setTimeout(() => {
       setIsDataLoaded(true);
-    }, Math.floor(Math.random() * 200));
+    }, Math.floor(Math.random() * 500));
   };
 
   return (
@@ -34,6 +42,7 @@ const App: React.FC = () => {
         autoCorrect={false}
         value={name}
         onChangeText={setName}
+        style={styles.input}
       />
       <TextInput
         testID="last-name"
@@ -41,6 +50,7 @@ const App: React.FC = () => {
         autoCorrect={false}
         value={lastName}
         onChangeText={setLastName}
+        style={styles.input}
       />
 
       <Button testID="button-save" title="Salvar" onPress={handleSubmit} />

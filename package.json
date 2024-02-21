@@ -6,7 +6,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "dependencies": {
     "expo": "^50.0.0",
@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@testing-library/react-native": "^9.0.0",
+    "@testing-library/react-native": "^12.4.3",
     "@types/jest": "^27.4.1",
     "@types/react": "~18.2.45",
     "@types/react-native": "~0.64.12",
