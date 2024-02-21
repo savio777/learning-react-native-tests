@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import Profile from "./components/Profile";
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +50,8 @@ const App: React.FC = () => {
           Dados carregados: {name} {lastName}
         </Text>
       )}
+
+      <Profile userName="savio777" />
     </View>
   );
 };

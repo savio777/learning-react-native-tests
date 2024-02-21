@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 import { IGithubProfile } from "./types";
 
@@ -23,13 +23,13 @@ const Profile = ({ userName }: Props) => {
   }, []);
 
   return (
-    <View testID="container">
+    <View testID="container" style={styles.container}>
       {!!profile && (
         <>
           <Image
             testID="avatar"
             source={{ uri: profile.avatar_url }}
-            style={{ width: "100%", height: 150 }}
+            style={styles.image}
           />
 
           <Text testID="name">{profile.name}</Text>
@@ -38,5 +38,19 @@ const Profile = ({ userName }: Props) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    width: "100%",
+    padding: 20,
+    gap: 8,
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    borderRadius: 8,
+  },
+});
 
 export default Profile;
