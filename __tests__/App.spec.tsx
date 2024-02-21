@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render } from "@testing-library/react-native";
+import { fireEvent, render } from "@testing-library/react-native";
 
 import App from "../App";
 
@@ -32,5 +32,18 @@ describe("App first tests", () => {
     const titleScreen = getByTestId("title-screen");
 
     expect(titleScreen.props.children).toContain("Aprendendo");
+  });
+
+  it("test async request", async () => {
+    const { getByTestId, findByTestId } = render(<App />);
+
+    fireEvent.changeText(getByTestId("name"), "Sávio");
+    fireEvent.changeText(getByTestId("last-name"), "Fontes");
+
+    fireEvent.press(getByTestId("button-save"));
+
+    const responseFeedback = await findByTestId("data-loaded");
+
+    expect(responseFeedback.props.children).toContain("Sávio");
   });
 });
